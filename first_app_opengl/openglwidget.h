@@ -21,6 +21,13 @@ protected:
     void initializeGL();
     void resizeGL(int w, int h);
     void paintGL();
+
+private:
+    QTimer timer;
+    bool blinkFlag{false};
+    float red{0};
+    float blue{0};
+    float green{0};
 };
 
 #endif // OPENGLWIDGET_H
