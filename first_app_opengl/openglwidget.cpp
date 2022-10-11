@@ -12,19 +12,20 @@ OpenGLWidget::~OpenGLWidget()
     destroyShaders();
 }
 
-void OpenGLWidget::initializeGL(){
+/*void OpenGLWidget::initializeGL(){
     initializeOpenGLFunctions();
     glClearColor(1,1,1,1);
     QObject::connect(&timer, &QTimer::timeout,[&](){this->update();});
     timer.start(1);
-}
+}*/
 
 void OpenGLWidget::resizeGL(int w, int h){
 
 }
 
+/*
 void OpenGLWidget::paintGL(){
-    /*
+
     blinkFlag =! blinkFlag;
 
     red = (red + 0.001);
@@ -48,8 +49,9 @@ void OpenGLWidget::paintGL(){
 
     glClearColor(red, green, blue, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-    */
+
 }
+*/
 
 void OpenGLWidget::toggleDarkMode(bool changeToDarkMode){
     /*
@@ -199,4 +201,21 @@ void OpenGLWidget::destroyVBOs(){
     eboIndices=0;
     vboColors=0;
     vao=0;
+}
+
+void OpenGLWidget::initializeGL(){
+    initializeOpenGLFunctions();
+    glClearColor(1,1,1,1);
+    qDebug("OpenGL Version: %s",glGetString(GL_VERSION));
+    qDebug("GLSL Version: %s",glGetString(GL_SHADING_LANGUAGE_VERSION));
+    createShaders();
+    createVBOs();
+}
+
+void OpenGLWidget::paintGL()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(shaderProgram);
+    glBindVertexArray(vao);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
