@@ -39,6 +39,7 @@ public:
         openGLWidget = new OpenGLWidget(centralwidget);
         openGLWidget->setObjectName(QString::fromUtf8("openGLWidget"));
         openGLWidget->setGeometry(QRect(-1, -1, 801, 521));
+        openGLWidget->setFocusPolicy(Qt::StrongFocus);
         checkBox = new QCheckBox(centralwidget);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
         checkBox->setGeometry(QRect(20, 530, 76, 20));

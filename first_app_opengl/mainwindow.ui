@@ -23,6 +23,9 @@
       <height>521</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">

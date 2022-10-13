@@ -9,6 +9,9 @@
 #include <vector>
 #include <QFile>
 
+#include <QApplication>
+#include <QKeyEvent>
+
 class OpenGLWidget : public QOpenGLWidget, public QOpenGLFunctions_4_0_Core
 {
     Q_OBJECT
@@ -34,6 +37,8 @@ public:
     void destroyShaders();
 
     void changeDiagonal();
+
+    void keyPressEvent(QKeyEvent *event);
 
 signals:
 
